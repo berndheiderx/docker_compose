@@ -7,6 +7,7 @@ powershell
 ```
 wsl --install
 ```
+
 ```powershell
 wsl --status
 ```
