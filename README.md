@@ -1,7 +1,9 @@
 # docker_compose
 
 ## WSL2 unter Windows installieren
+
 powershell
+
 ```
 wsl --install
 ```
