@@ -1,8 +1,8 @@
 # docker_compose
 
 ## WSL2 unter Windows installieren
-
-```powershell
+powershell
+```
 wsl --install
 ```
 ## Ubuntu unter WSL installieren 
