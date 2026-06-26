@@ -7,6 +7,10 @@ powershell
 ```
 wsl --install
 ```
+```powershell
+wsl --status
+```
+
 ## Ubuntu unter WSL installieren 
 
 ## Docker in Ubuntu (unter WSL2) installieren
