@@ -2,6 +2,9 @@
 
 ## WSL2 unter Windows installieren
 
+```powershell
+wsl --install
+```
 ## Ubuntu unter WSL installieren 
 
 ## Docker in Ubuntu (unter WSL2) installieren
