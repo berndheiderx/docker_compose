@@ -6,6 +6,9 @@ powershell
 
 ```
 wsl --install
+(Installiert die aktuell empfohlene Ubuntu-Version)
+wsl --install -d <Distribution>
+(Installiert die angegebene Distribution und Version)
 ```
 
 ```powershell
