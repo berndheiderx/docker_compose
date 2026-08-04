@@ -1,6 +1,6 @@
 # docker_compose
 
-## WSL2 unter Windows installieren
+## WSL2 & Ubuntu unter Windows installieren
 
 powershell
 
@@ -10,14 +10,30 @@ wsl --install
 wsl --install -d <Distribution>
 (Installiert die angegebene Distribution und Version)
 ```
+Status prüfen
 
-```powershell
+```
 wsl --status
 ```
 
-## Ubuntu unter WSL installieren 
+## Login Ubuntu in WSL
+```
+wsl -d Ubuntu
+```
 
 ## Docker in Ubuntu (unter WSL2) installieren
+
+Prüfen ob Docker läuft
+
+```
+sudo systemctl status docker
+```
+
+Falls nicht, Docker starten
+
+```
+sudo systemctl start docker
+```
 
 ## Beispiel: MariaDB‑11.5‑Container erstellen
 
