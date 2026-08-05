@@ -80,8 +80,43 @@ Entfernen
 docker compose down
 ```
 
+## Mögliche Fehlermeldungen
 
+# 
 
+```
+docker compose up -d
+WARN[0000] /mnt/c/Users/bernd/yaml/mariadb/compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+permission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+```
+
+# Lösung
+
+Was du tun solltest
+Entferne die Zeile version: aus deiner compose.yml.
+
+Prüfe, ob Docker läuft:
+
+```
+docker version
+```
+
+Prüfe die Rechte:
+```
+groups
+```
+Wenn docker nicht in der Ausgabe steht, füge deinen Benutzer zur Docker-Gruppe hinzu:
+
+```
+sudo usermod -aG docker $USER
+newgrp docker
+```
+Falls du Docker Desktop unter Windows mit WSL nutzt, stelle sicher, dass WSL Integration für deine Ubuntu-Distribution aktiviert ist.
+
+Danach erneut starten
+```
+docker compose up -d
+```
 
 
 
