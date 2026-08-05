@@ -9,6 +9,11 @@ services:
       MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: "yes"
     ports:
       - "3306:3306"
+    environment:
+      MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: "1"
+      MARIADB_DATABASE: testdb
+      MARIADB_USER: appuser
+      MARIADB_PASSWORD: apppass
     volumes:
       - mariadb_data:/var/lib/mysql
 
