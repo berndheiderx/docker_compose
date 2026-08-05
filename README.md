@@ -42,6 +42,50 @@ Falls nicht, Docker starten
 sudo systemctl start docker
 ```
 
-## Beispiel: MariaDB‑11.5‑Container erstellen
+## Ausführen von Compose-Dateien
 
-### MariaDB‑Client nutzen
+### Navigation Ordner compose.yaml
+
+```
+cd /mnt/c/Users/USERNAME/yaml/ORDNERNAME
+```
+
+### Ausführen Docker Container
+
+```
+docker compose up -d
+```
+
+```
+compose (gilt nur wenn eine compose.yaml Datei im Verzeichnis exisitiert) kann z.B. durch einen spezifischen Dateinamen wie compose_mariadb.yaml ersetzt werden
+```
+
+### Status prüfen ###
+```
+docker compose ps
+```
+
+### Logs ansehen ###
+```
+docker compose logs -f
+```
+
+## Docker Stoppen oder Entfernen ##
+Stoppen
+```
+docker compose stop
+```
+
+Entfernen
+```
+docker compose down
+```
+
+
+
+
+
+
+
+
+
