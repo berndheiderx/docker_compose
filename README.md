@@ -55,10 +55,7 @@ cd /mnt/c/Users/USERNAME/yaml/ORDNERNAME
 ```
 docker compose up -d
 ```
-
-```
 compose (gilt nur wenn eine compose.yaml Datei im Verzeichnis exisitiert) kann z.B. durch einen spezifischen Dateinamen wie compose_mariadb.yaml ersetzt werden
-```
 
 ### Status prüfen ###
 ```
