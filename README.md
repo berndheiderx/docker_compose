@@ -80,9 +80,9 @@ Entfernen
 docker compose down
 ```
 
-## Mögliche Fehlermeldungen
+## Mögliche Fehlermeldungen ##
 
-# 
+
 
 ```
 docker compose up -d
@@ -90,7 +90,7 @@ WARN[0000] /mnt/c/Users/bernd/yaml/mariadb/compose.yml: the attribute `version` 
 permission denied while trying to connect to the docker API at unix:///var/run/docker.sock
 ```
 
-# Lösung
+### Lösung ###
 
 Was du tun solltest
 Entferne die Zeile version: aus deiner compose.yml.
