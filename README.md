@@ -42,6 +42,8 @@ Falls nicht, Docker starten
 sudo systemctl start docker
 ```
 
+## WICHTIG!!!: Oft ist ein Neustart des Systems notwendig, damit Container gestartet werden können
+
 ## Ausführen von Compose-Dateien
 
 ### Navigation Ordner compose.yaml
