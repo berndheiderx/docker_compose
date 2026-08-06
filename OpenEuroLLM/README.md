@@ -1,6 +1,7 @@
 # Ollama mit OpenEuroLLM-German
 
-## Anleitung
+## Anleitung 
+https://ollama.com/jobautomation/OpenEuroLLM-German
 
 ### 1. Verzeichnis anlegen (oder unter "C:\Users\USERNAME\yaml\openeurollm")
 
