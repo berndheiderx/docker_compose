@@ -38,6 +38,7 @@ Ollama bindet standardmäßig auf 127.0.0.1:11434, was du über die Umgebungsvar
 (Siehe compose_network.yaml)
 
 ## compose_network.yaml
+
 Um Ollama aus anderen Containern erreichbar zu machen, musst du OLLAMA_HOST=0.0.0.0:11434 setzen. Damit lauscht Ollama auf allen Netzwerkschnittstellen statt nur auf 127.0.0.1.
 
 Andere Container verbinden sich dann mit
