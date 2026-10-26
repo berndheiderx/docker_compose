@@ -1,0 +1,69 @@
+# Ollama + alle LLMs für Tabu-KI und ModelBenchmark
+#
+# Start:            docker compose up -d
+# Fortschritt:      docker compose logs -f ollama-pull
+# Modelle prüfen:   docker exec -it ollama ollama list
+# Stoppen:          docker compose down        (Modelle bleiben im Volume erhalten)
+# Alles löschen:    docker compose down -v     (löscht auch die heruntergeladenen Modelle!)
+#
+# Benötigt Speicherplatz: ca. 25 GB für alle Modelle. Nicht benötigte Modelle
+# in der Liste unten einfach löschen.
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    environment:
+      # Modelle bleiben 10 Minuten im Speicher (schnellere Folgeaufrufe)
+      - OLLAMA_KEEP_ALIVE=10m
+      # Nur ein Modell gleichzeitig im RAM, schont schwächere Rechner
+      - OLLAMA_MAX_LOADED_MODELS=1
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+    # --- NVIDIA-GPU (optional): Kommentarzeichen entfernen ---
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]
+
+  # Lädt einmalig alle Modelle herunter und beendet sich danach wieder.
+  # Bereits geladene Modelle werden übersprungen bzw. nur aktualisiert.
+  ollama-pull:
+    image: ollama/ollama:latest
+    container_name: ollama-pull
+    depends_on:
+      ollama:
+        condition: service_healthy
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+    restart: "no"
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        set -e
+        for model in \
+          llama3.2:3b \
+          gemma3:4b \
+          qwen2.5:7b \
+          mistral:7b \
+          jobautomation/OpenEuroLLM-German
+        do
+          echo ">>> Lade $$model"
+          ollama pull "$$model"
+        done
+        echo ">>> Alle Modelle geladen."
+
+volumes:
+  ollama_data:
